@@ -8,6 +8,8 @@
 
     @include('includes.styles')
 
+    @yield('onPageStyle')
+
 </head>
 <body class="home-page home-01 ">
 

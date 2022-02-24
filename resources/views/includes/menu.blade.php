@@ -42,17 +42,20 @@
                             </li>
                             @if (Auth::user())
                                 <li class="menu-item menu-item-has-children parent" >
-                                    <a title="My Account" href="#">{{ Auth::user()->name}}<i class="fa fa-angle-down" aria-hidden="true"></i></a>
+                                    <p title="My Account" href="#"><i class="fa fa-angle-down" aria-hidden="true"></i></p>
                                     <ul class="submenu curency" >
+                                        <li class="menu-item menu_user_dropdown" >
+                                            <img src="{{ asset('/').Auth::user()->profile_photo_path}}" style="width:35px;">
+                                            <p>{{ Auth::user()->name}}</p>
+                                        </li>
                                         <li class="menu-item" >
-                                            <a title="Edit Profile" href="{{ route('profile.show') }}">Edit Profile</a>
+                                            <a title="Edit Profile" href="{{ route('edit.profile') }}" style="padding-left: 5px">Edit Profile</a>
                                         </li>
                                         <li class="menu-item" >
                                             <form action="{{ route('logout') }}" method="post">
                                                 @csrf
                                                 <input type="submit" title="" class="logoutBtn" value="Logout">&nbsp;<i class="fa fa-sign-out pl-1" aria-hidden="true"></i>
                                             </form>
-                                            {{-- <a title="Logout" href="#">Logout&nbsp;<i class="fa fa-sign-out pl-1" aria-hidden="true"></i></a> --}}
                                         </li>
                                     </ul>
                                 </li>
